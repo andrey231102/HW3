@@ -31,7 +31,7 @@ public class WaypointMovement : MonoBehaviour
 
         _animator.SetFloat("Direction", direction.x);
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position,_speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.position,_speed * Time.deltaTime);
 
         if (transform.position == target.position)
         {

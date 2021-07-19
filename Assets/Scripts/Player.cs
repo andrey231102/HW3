@@ -7,14 +7,14 @@ public class Player : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Collect(collision,collision.gameObject.TryGetComponent<Gem>(out Gem Gem));
+        if (collision.gameObject.TryGetComponent<Gem>(out Gem Gem))
+        {
+            Collect(collision);
+        }
     }
 
-    private void Collect(Collider2D collision, bool isCollectable)
+    private void Collect(Collider2D collision)
     {
-        if (isCollectable)
-        {
-            Destroy(collision.gameObject);
-        }
+        Destroy(collision.gameObject);
     }
 }
