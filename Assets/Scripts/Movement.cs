@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
         _direction = Input.GetAxis("Horizontal");
         transform.position += new Vector3(_direction, 0, 0) * Time.deltaTime * _speed.x;
 
-        if (Input.GetButtonDown("Jump")&& Mathf.Abs(_rigidbody2D.velocity.y)<0.1)
+        if (Input.GetKeyDown(KeyCode.Space)&& Mathf.Abs(_rigidbody2D.velocity.y)<0.1)
         {
             _rigidbody2D.AddForce(new Vector2(0, _speed.y), ForceMode2D.Impulse);
         }

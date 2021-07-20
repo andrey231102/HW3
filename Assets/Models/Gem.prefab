@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -7922071494038812442}
   - component: {fileID: -8088465814505488269}
   m_Layer: 0
-  m_Name: gem-1
+  m_Name: Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c25ad6213dd7094b90eb9ecf57aaffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xForceValue: 200
-  _yForceValue: 350
+  _forceValue: {x: 100, y: 500}
 --- !u!58 &5556407609011187233
 CircleCollider2D:
   m_ObjectHideFlags: 0

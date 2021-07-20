@@ -4,13 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Gem : MonoBehaviour
 {
+    [SerializeField] private Vector2 _forceValue;
+
     private Rigidbody2D _rigidBody;
-    [SerializeField] private float _xForceValue;
-    [SerializeField] private float _yForceValue;
 
     private void Start()
     {
-        Vector2 position = new Vector2(Random.Range(-1 * _xForceValue,_xForceValue), _yForceValue);
+        Vector2 position = new Vector2(Random.Range(-1 * _forceValue.x,_forceValue.x), _forceValue.y);
         _rigidBody = GetComponent<Rigidbody2D>();
         _rigidBody.AddForce(position);
     }
