@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerAnimator : MonoBehaviour
 {
-    private Movement _direction;
+    private PlayerMovement _direction;
     private Animator _animator;
 
     private void Start()
     {
-        _direction = GetComponent<Movement>();
+        _direction = GetComponent<PlayerMovement>();
         _animator = GetComponent<Animator>();
     }
 

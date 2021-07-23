@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class WaypointMovement : MonoBehaviour
 {
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed;
     [SerializeField] private Animator _animator;
 
+    private Transform _target;
     private Transform[] _points;
     private int _currentPoint;
 
@@ -21,19 +23,19 @@ public class WaypointMovement : MonoBehaviour
         {
             _points[i] = _path.GetChild(i);
         }
+
+        _target = _points[_currentPoint];
     }
 
     private void Update()
     {
-        Transform target = _points[_currentPoint];
-
-        var direction = (target.position - transform.position).normalized;
+        var direction = (_target.position - transform.position).normalized;
 
         _animator.SetFloat("Direction", direction.x);
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position,_speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, _target.position,_speed * Time.deltaTime);
 
-        if (transform.position == target.position)
+        if (transform.position == _target.position)
         {
             _currentPoint++;
 
@@ -41,6 +43,7 @@ public class WaypointMovement : MonoBehaviour
             {
                 _currentPoint = 0;
             }
+            _target = _points[_currentPoint];
         }
 
     }
