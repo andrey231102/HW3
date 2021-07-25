@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerMover))]
+
 public class PlayerAnimator : MonoBehaviour
 {
-    private PlayerMovement _direction;
+    private PlayerMover _direction;
     private Animator _animator;
 
     private void Start()
     {
-        _direction = GetComponent<PlayerMovement>();
+        _direction = GetComponent<PlayerMover>();
         _animator = GetComponent<Animator>();
     }
 
